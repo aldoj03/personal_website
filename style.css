@@ -95,12 +95,13 @@ position: absolute;
 border-radius: 20px;
 /* background: rgba(0, 0, 0, 0.062); */
 width: 66.5% !important;
-height: 70%
+height: 100%
 }  
 
 .nombre{
+    text-align: center;
    /*  font-family: 'Catamaran', sans-serif; */
-    font-size:  750% ;
+    font-size:  310% ;
     float: left;
     letter-spacing: 10px;
     margin: 0 auto;
@@ -114,6 +115,7 @@ height: 70%
 }
 
 .description{
+    margin-top: 30px;
     text-align: center;
     font-size: 120%
 }
