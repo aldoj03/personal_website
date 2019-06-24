@@ -5,13 +5,18 @@ $(document).ready(function() {
         .not($(this).children()) //PRIMERA ANIMACION
         .addClass("blur");
 
-      /*   $('.a').css('filter' , 'blur(2px)'); */
+      $(".a").css("opacity", ".3");
       var that = $(this).children();
-      that.css("width", $(window).width() / 2).css("z-index", "3");
+      that.css("width", $(window).width() / 2 + "px").css("z-index", "3");
 
       setTimeout(function() {
-        if (parseFloat(that.css("width")) == $(window).width() / 2) {
+        if (
+          Math.ceil(parseFloat(that.css("width"))) ==
+          Math.ceil($(window).width() / 2)
+        ) {
           that.css("height", "400%");
+          if ($(window).width() <= 1024) {
+          }
           that.children("button").fadeIn(); //SEGUNDA ANIMACION comprueba si la primera se completó
         }
       }, 1200);
@@ -23,9 +28,8 @@ $(document).ready(function() {
       that.children("button").fadeOut();
 
       console.log(that, that.parent(), that.parent().parent()); //AGRANDA TODO EL DIVP
-      
-      
-       that.parent().css("height", "auto"); 
+
+      that.parent().css("height", "auto");
       $(".vacio").css("height", "20%");
       that
         .parent()
@@ -35,7 +39,7 @@ $(document).ready(function() {
         .not($(this).children()) //REGRESA AL ESTADO INICIAL
         .removeClass("blur");
       that.css("z-index", "0");
-      $('.a').css("filter", 'blur(0)');
+      $(".a").css("opacity", "1");
     }
   );
 
@@ -43,6 +47,7 @@ $(document).ready(function() {
     //ANIMA AL CLICK
 
     var that = $(this).parent();
+
     $(".vacio").css("height", "0%");
     that.css("width", $(window).width());
     that.css("height", "100%");
@@ -51,7 +56,5 @@ $(document).ready(function() {
       .parent() //AGRANDA TODO EL DIV HASTA SER DEL TAMAÑO DEL BODY
       .parent()
       .css("height", "100%");
-
-
   });
 });
