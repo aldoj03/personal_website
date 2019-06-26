@@ -7,6 +7,7 @@ $(document).ready(function() {
 
       $(".a").css("opacity", ".3");
       var that = $(this).children();
+
       that.css("width", $(window).width() / 2 + "px").css("z-index", "3");
 
       setTimeout(function() {
@@ -18,16 +19,18 @@ $(document).ready(function() {
           if ($(window).width() <= 1024) {
           }
           that.children("button").fadeIn(); //SEGUNDA ANIMACION comprueba si la primera se completó
+          that.children("div").fadeIn();
         }
       }, 1200);
     },
     function() {
       var that = $(this).children();
+      that.children(".muestra_contenido").fadeOut();
       that.css("height", "70%");
       that.css("width", "100%");
       that.children("button").fadeOut();
 
-      console.log(that, that.parent(), that.parent().parent()); //AGRANDA TODO EL DIVP
+      //  console.log(that, that.parent(), that.parent().parent()); //AGRANDA TODO EL DIVP
 
       that.parent().css("height", "auto");
       $(".vacio").css("height", "20%");
