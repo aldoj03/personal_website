@@ -19,7 +19,23 @@ $(document).ready(function() {
           if ($(window).width() <= 1024) {
           }
           that.children("button").fadeIn(); //SEGUNDA ANIMACION comprueba si la primera se completó
-          that.children("div").fadeIn();
+          that.children(".muestra_contenido").fadeIn();
+          console.log(
+            that
+              .children(".muestra_contenido")
+              .children()
+              .children(".description")
+          );
+
+          that
+            .children(".muestra_contenido")
+            .children()
+            .children(".description")
+            .fadeIn();
+          that
+            .children("muestra_contenido")
+            .children(".contenido")
+            .fadeIn();
         }
       }, 1200);
     },
@@ -43,6 +59,7 @@ $(document).ready(function() {
         .removeClass("blur");
       that.css("z-index", "0");
       $(".a").css("opacity", "1");
+      $(".contenido").fadeOut();
     }
   );
 
@@ -59,5 +76,8 @@ $(document).ready(function() {
       .parent() //AGRANDA TODO EL DIV HASTA SER DEL TAMAÑO DEL BODY
       .parent()
       .css("height", "100%");
+    $(this).fadeOut();
+    $(".muestra_contenido .description").fadeOut();
+    $(".contenido").fadeIn();
   });
 });

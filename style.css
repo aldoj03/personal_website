@@ -36,8 +36,8 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
 }
 
 .cosa {
-  /*   background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77,138,1) 100%); */
-  background: linear-gradient(to right, rgb(228, 77, 38), rgb(241, 101, 41));
+    background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77,138,1) 100%);
+ /*  background: linear-gradient(to right, rgb(228, 77, 38), rgb(241, 101, 41)); */
   /*  background: linear-gradient(to right, #cb2d3e, #ef473a); */
   width: 100%;
   height: 70%;
@@ -106,7 +106,7 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
 
 .nombre {
   /*  font-family: 'Catamaran', sans-serif; */
-  font-size: 360%;
+  font-size: 370%;
   float: left;
   letter-spacing: 10px;
   margin: 0 auto;
@@ -121,7 +121,7 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
 .description {
   position: relative;
   text-align: center;
-  font-size: 120%;
+  font-size: 180%;
   /*  font-family: 'Poppins', sans-serif; */
   /*  font-family: 'Nanum Gothic', sans-serif; */
   /*   font-family: 'Encode Sans Expanded', sans-serif; */
@@ -130,13 +130,13 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
   /* font-family: 'Acme', sans-serif; */
 }
 
-@media (max-width: 930px) {
+@media  screen and  (max-width: 930px) {
   .a {
     font-size: 90%;
   }
 }
 
-@media (max-width: 800px) {
+@media screen and  (max-width: 800px) {
   .a {
     font-size: 85%;
   }
@@ -145,7 +145,7 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
     margin-top: 800px;
   }
 }
-@media (max-width: 730px) {
+@media screen and (max-width: 730px) {
   .a {
     font-size: 75%;
   }
@@ -154,7 +154,7 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
   }
 }
 
-@media (max-width: 600px) {
+@media screen and  (max-width: 600px) {
   .nombre {
     font-size: 340%;
   }
@@ -164,7 +164,7 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
   }
 }
 
-@media (max-width: 530px) {
+@media  screen and  (max-width: 530px) {
   .a {
     font-size: 65%;
   }
@@ -174,7 +174,24 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
   }
 }
 
+/*  @media screen and (min-width: 1000px) and (orientation: landscape) {
+  .a {
+    background: red;
+    font-size: 65%;
+  }
+  .nombre {
+    font-size: 280%;
+    letter-spacing: 8px;
+  }
+}  */
+img{
+width: 30%;
+height: 30%;
+clip-path: circle();
+
+}
 .muestra_contenido {
+  padding: 2% ;
   position: absolute !important;
   display: none;
   background: radial-gradient(
@@ -199,7 +216,7 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
 .der .muestra_contenido {
   margin-left: 1%;
   border-radius: 10px;
-  border-top-right-radius: 100px;
+  border-top-right-radius: 135px;
   border-bottom-left-radius: 100px;
 }
 
@@ -228,4 +245,15 @@ background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(57,77
 
 .muestra_contenido .nombre {
   font-size: 270%;
+  margin: 0 auto;
+  text-align: center
+}
+
+.muestra_contenido .description{
+  margin-top: 5%;
+  font-size: 100%
+}
+
+.muestra_contenido .contenido{
+  display:none
 }
