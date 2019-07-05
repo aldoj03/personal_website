@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  console.log($(window).width());
+
   $(".sel").hover(
     function() {
       $(".cosa")
@@ -16,8 +18,7 @@ $(document).ready(function() {
           Math.ceil($(window).width() / 2)
         ) {
           that.css("height", "400%");
-          if ($(window).width() <= 1024) {
-          }
+
           that.children("button").fadeIn(); //SEGUNDA ANIMACION comprueba si la primera se completó
           that.children(".muestra_contenido").fadeIn();
           console.log(
@@ -29,12 +30,7 @@ $(document).ready(function() {
 
           that
             .children(".muestra_contenido")
-            .children()
-            .children(".description")
-            .fadeIn();
-          that
-            .children("muestra_contenido")
-            .children(".contenido")
+            .children(".bocado")
             .fadeIn();
         }
       }, 1200);
@@ -46,10 +42,12 @@ $(document).ready(function() {
       that.css("width", "100%");
       that.children("button").fadeOut();
 
-      //  console.log(that, that.parent(), that.parent().parent()); //AGRANDA TODO EL DIVP
+      //  console.log(that, that.parent(), that.parent().parent()); //AGRANDA TODO EL DIV
 
       that.parent().css("height", "auto");
       $(".vacio").css("height", "20%");
+      $(".vacio.footer").css("height", "30%");
+
       that
         .parent()
         .parent()
@@ -77,7 +75,7 @@ $(document).ready(function() {
       .parent()
       .css("height", "100%");
     $(this).fadeOut();
-    $(".muestra_contenido .description").fadeOut();
+    $(".bocado").fadeOut();
     $(".contenido").fadeIn();
   });
 });
