@@ -1,5 +1,20 @@
 $(document).ready(function() {
-  console.log($(window).width());
+ 
+  if (!window.localStorage.key("theme")) {
+     $(".theme ul li button").addClass("dark");  
+    $(".function_box ul li a").addClass("dark");
+   darkTheme();
+    localStorage.setItem("theme", $(".theme ul li button").attr("class"));
+  } else {
+    let theme = localStorage.getItem("theme");
+    $(".theme ul li button").addClass(theme);
+    $(".function_box ul li a").addClass(theme);
+    if (theme == "dark") {
+      darkTheme();
+    } else {
+      ligthTheme();
+    }
+  }
 
   $(".sel").hover(
     function() {
@@ -7,7 +22,7 @@ $(document).ready(function() {
         .not($(this).children()) //PRIMERA ANIMACION
         .addClass("blur");
 
-      $(".a").css("opacity", ".3");
+      $(".centro").css("opacity", ".3");
       var that = $(this).children();
 
       that.css("width", $(window).width() / 2 + "px").css("z-index", "3");
@@ -45,8 +60,8 @@ $(document).ready(function() {
       //  console.log(that, that.parent(), that.parent().parent()); //AGRANDA TODO EL DIV
 
       that.parent().css("height", "auto");
-      $(".vacio").css("height", "20%");
-      $(".vacio.footer").css("height", "30%");
+      $("header").css("height", "20%");
+      $("footer").css("height", "30%");
 
       that
         .parent()
@@ -56,7 +71,7 @@ $(document).ready(function() {
         .not($(this).children()) //REGRESA AL ESTADO INICIAL
         .removeClass("blur");
       that.css("z-index", "0");
-      $(".a").css("opacity", "1");
+      $(".centro").css("opacity", "1");
       $(".contenido").fadeOut();
     }
   );
@@ -66,7 +81,7 @@ $(document).ready(function() {
 
     var that = $(this).parent();
 
-    $(".vacio").css("height", "0%");
+    $("header, footer").css("height", "0%");
     that.css("width", $(window).width());
     that.css("height", "100%");
     that.parent().css("height", "100%");
@@ -78,4 +93,82 @@ $(document).ready(function() {
     $(".bocado").fadeOut();
     $(".contenido").fadeIn();
   });
+
+  $(".theme ul li button").click(function() {
+    if ($(this).hasClass("ligth")) {
+      
+      
+      $(this).removeClass("ligth");
+      $(".function_box ul li a").removeClass("ligth");
+      $(this).addClass("dark");
+      $(".function_box ul li a").addClass("dark");
+      darkTheme();
+      localStorage.setItem("theme", $(".theme ul li button").attr("class"));
+    } else {
+      $(this).addClass("ligth");
+      $(".function_box ul li a").addClass("ligth");
+      $(this).removeClass("dark");
+      $(".function_box ul li a").removeClass("dark");
+      ligthTheme();
+      localStorage.setItem("theme", $(".theme ul li button").attr("class"));
+    }
+  });
+
+  function darkTheme() {
+    $(".container-fluid").css(
+      "background",
+      "radial-gradient(ellipse at center,rgba(76, 76, 76, 1) 0%,rgba(89, 89, 89, 1) 0%,rgba(29, 29, 29, 1) 97%,rgba(28, 28, 28, 1) 99%,rgba(0, 0, 0, 1) 100%)"
+    );
+    $(".cosa")
+      .css(
+        "background",
+        " radial-gradient(ellipse at center,rgba(73, 155, 234, 1) 0%,rgba(57, 77, 138, 1) 100%)"
+      )
+      .css("box-shadow", "4px 3px 18px 0px #272727");
+    $(".centro").css("background", "rgba(0, 0, 0, 0.062)");
+    $(".description").css("color", "#ece9e6");
+    $(".tittle").css("color", "rgb(243, 241, 255)");
+    $(".nombre")
+      .css("color", "#00c6ff")
+      .css("text-shadow", "2px 3px 20px  rgb(37, 37, 37)");
+    $(".function_box").css("background", "rgba(255, 255, 255, 0.062)");
+   /*  $(".function_box ul li a")
+    .css("color", "rgb(185, 184, 181)")
+    .hover(
+      function() {
+        $(this).css("color", "rgb(221, 220, 217)");
+      },
+      function() {
+        $(this).css("color", "rgb(185, 184, 181)");
+      }
+    ); */
+
+  }
+
+  function ligthTheme() {
+    $(".container-fluid").css(
+      "background",
+      "radial-gradient(ellipse at center, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 96%, rgba(209,209,209,1) 100%)"
+    );
+    $(".cosa")
+      .css("background", "linear-gradient(to right, #cb2d3e, #ef473a)")
+      .css("box-shadow", "-4px 3px 18px 0px #ababab");
+    $(".centro").css("background", "rgba(0, 0, 0, 0.03)");
+    $(".description").css("color", "#3c3937");
+    $(".tittle").css("color", "#4b5054");
+    $(".nombre")
+      .css("color", "#ff6800")
+      .css("text-shadow", "2px 3px 20px #cacaca");
+    $(".function_box").css("background", "#00000010");
+    /* $(".function_box ul li a")
+      .css("color", "#404644")
+      .hover(
+        function() {
+          $(this).css("color", "#697370");
+        },
+        function() {
+          $(this).css("color", "#404644");
+        }
+      ); */
+  }
 });
