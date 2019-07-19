@@ -1,9 +1,8 @@
 $(document).ready(function() {
- 
   if (!window.localStorage.key("theme")) {
-     $(".theme ul li button").addClass("dark");  
+    $(".theme ul li button").addClass("dark");
     $(".function_box ul li a").addClass("dark");
-   darkTheme();
+    darkTheme();
     localStorage.setItem("theme", $(".theme ul li button").attr("class"));
   } else {
     let theme = localStorage.getItem("theme");
@@ -96,8 +95,6 @@ $(document).ready(function() {
 
   $(".theme ul li button").click(function() {
     if ($(this).hasClass("ligth")) {
-      
-      
       $(this).removeClass("ligth");
       $(".function_box ul li a").removeClass("ligth");
       $(this).addClass("dark");
@@ -132,7 +129,7 @@ $(document).ready(function() {
       .css("color", "#00c6ff")
       .css("text-shadow", "2px 3px 20px  rgb(37, 37, 37)");
     $(".function_box").css("background", "rgba(255, 255, 255, 0.062)");
-   /*  $(".function_box ul li a")
+    /*  $(".function_box ul li a")
     .css("color", "rgb(185, 184, 181)")
     .hover(
       function() {
@@ -142,7 +139,6 @@ $(document).ready(function() {
         $(this).css("color", "rgb(185, 184, 181)");
       }
     ); */
-
   }
 
   function ligthTheme() {
