@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  var page_historia = 1;
+  var page_portafolio = 1;
   if (!window.localStorage.key("theme")) {
     $(".theme ul li button").addClass("dark");
     $(".function_box ul li a").addClass("dark");
@@ -22,7 +24,7 @@ $(document).ready(function() {
         .addClass("blur");
 
       $(".centro").css("opacity", ".3");
-      var that = $(this).children();
+      let that = $(this).children();
 
       that.css("width", $(window).width() / 2 + "px").css("z-index", "3");
 
@@ -35,12 +37,6 @@ $(document).ready(function() {
 
           that.children("button").fadeIn(); //SEGUNDA ANIMACION comprueba si la primera se completó
           that.children(".muestra_contenido").fadeIn();
-          console.log(
-            that
-              .children(".muestra_contenido")
-              .children()
-              .children(".description")
-          );
 
           that
             .children(".muestra_contenido")
@@ -50,7 +46,7 @@ $(document).ready(function() {
       }, 1200);
     },
     function() {
-      var that = $(this).children();
+      let that = $(this).children();
       that.children(".muestra_contenido").fadeOut();
       that.css("height", "70%");
       that.css("width", "100%");
@@ -78,7 +74,7 @@ $(document).ready(function() {
   $(".ver_mas").click(function() {
     //ANIMA AL CLICK
 
-    var that = $(this).parent();
+    let that = $(this).parent();
 
     $("header, footer").css("height", "0%");
     that.css("width", $(window).width());
@@ -94,17 +90,19 @@ $(document).ready(function() {
   });
 
   $(".theme ul li button").click(function() {
-    if ($(this).hasClass("ligth")) {
-      $(this).removeClass("ligth");
+    let that = $(this);
+
+    if (that.hasClass("ligth")) {
+      that.removeClass("ligth");
       $(".function_box ul li a").removeClass("ligth");
-      $(this).addClass("dark");
+      that.addClass("dark");
       $(".function_box ul li a").addClass("dark");
       darkTheme();
       localStorage.setItem("theme", $(".theme ul li button").attr("class"));
     } else {
-      $(this).addClass("ligth");
+      that.addClass("ligth");
       $(".function_box ul li a").addClass("ligth");
-      $(this).removeClass("dark");
+      that.removeClass("dark");
       $(".function_box ul li a").removeClass("dark");
       ligthTheme();
       localStorage.setItem("theme", $(".theme ul li button").attr("class"));
@@ -112,6 +110,9 @@ $(document).ready(function() {
   });
 
   function darkTheme() {
+    //TODO: colocar tema con css
+    /*  $(".css-theme").attr("href", "css/theme/darktheme"); */
+
     $(".container-fluid").css(
       "background",
       "radial-gradient(ellipse at center,rgba(76, 76, 76, 1) 0%,rgba(89, 89, 89, 1) 0%,rgba(29, 29, 29, 1) 97%,rgba(28, 28, 28, 1) 99%,rgba(0, 0, 0, 1) 100%)"
@@ -129,19 +130,11 @@ $(document).ready(function() {
       .css("color", "#00c6ff")
       .css("text-shadow", "2px 3px 20px  rgb(37, 37, 37)");
     $(".function_box").css("background", "rgba(255, 255, 255, 0.062)");
-    /*  $(".function_box ul li a")
-    .css("color", "rgb(185, 184, 181)")
-    .hover(
-      function() {
-        $(this).css("color", "rgb(221, 220, 217)");
-      },
-      function() {
-        $(this).css("color", "rgb(185, 184, 181)");
-      }
-    ); */
   }
 
   function ligthTheme() {
+    //TODO: colocar tema con css
+    /*  $(".css-theme").attr("href", "css/theme/ligthteme"); */
     $(".container-fluid").css(
       "background",
       "radial-gradient(ellipse at center, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 96%, rgba(209,209,209,1) 100%)"
@@ -156,15 +149,100 @@ $(document).ready(function() {
       .css("color", "#ff6800")
       .css("text-shadow", "2px 3px 20px #cacaca");
     $(".function_box").css("background", "#00000010");
-    /* $(".function_box ul li a")
-      .css("color", "#404644")
-      .hover(
-        function() {
-          $(this).css("color", "#697370");
-        },
-        function() {
-          $(this).css("color", "#404644");
-        }
-      ); */
   }
+
+  $(".cv").click(() => {
+    alert("descargar");
+  });
+
+  $(".historia .next").click(function() {
+    let that = $(this);
+
+    paginacion(5, "derecha", "historia", that);
+  });
+
+  $(".historia .prev").click(function() {
+    let that = $(this);
+    paginacion(5, "izquierda", "historia", that);
+  });
+
+  $(".portafolio .next").click(function() {
+    let that = $(this);
+    paginacion(3, "derecha", "portafolio", that);
+  });
+
+  $(".portafolio .prev").click(function() {
+    let that = $(this);
+    paginacion(3, "izquierda", "portafolio", that);
+  });
+
+  function paginacion(max, flecha, contexto, that) {
+    let page;
+    if (contexto == "historia") {
+      page = page_historia;
+    }
+    if (contexto == "portafolio") {
+      page = page_portafolio;
+    }
+
+    if (flecha == "derecha") {
+     /*  console.log("anterior " + page); */
+
+      if (page < max) {
+        page++;
+        if (page > 1) {
+          that.siblings(".prev").css("opacity", "1");
+        }
+        that.css("opacity", "1");
+        that
+          .parent()
+          .siblings(".page-" + (page - 1))
+          .fadeOut(50, function() {
+            that
+              .parent()
+              .siblings(".page-" + page)
+              .fadeIn();
+
+            if (page == max) {
+              that.css("opacity", "0");
+            }
+            /* console.log("actual " + page); */
+          });
+      }
+    }
+
+    if (flecha == "izquierda") {
+      if (page > 1) {
+        page--;
+        if (page < max) {
+          that.siblings(".next").css("opacity", "1");
+        }
+        that.css("opacity", "1");
+        that
+          .parent()
+          .siblings(".page-" + (page + 1))
+          .fadeOut(50, function() {
+            that
+              .parent()
+              .siblings(".page-" + page)
+              .fadeIn();
+
+            if (page == 1) {
+              that.css("opacity", "0");
+            }
+          /*   console.log("actual " + page); */
+          });
+      }
+    }
+    if (contexto == "historia") {
+      page_historia = page;
+    }
+    if (contexto == "portafolio") {
+      page_portafolio = page;
+    }
+ /*    console.log("esto es : " + page_historia + " " + page_portafolio); */
+  }
+
+ 
+
 });
