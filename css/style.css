@@ -5,6 +5,10 @@ body {
   overflow: hidden;
 }
 
+.muestra_contenido .container {
+  position: relative;
+  height: 100%;
+}
 .container-fluid {
   height: 100%;
 
@@ -109,8 +113,6 @@ main {
   font-family: "Comfortaa", cursive;
   position: absolute;
   border-radius: 20px;
-  /*  background: rgba(0, 0, 0, 0.062); */
-  /* background: #222632; */
 
   width: 66.5% !important;
   height: 70%;
@@ -136,15 +138,13 @@ main {
 
 .tittle {
   /*  color: rgb(243, 241, 255); */
-  margin: 0 auto;
+
   font-size: 3.5rem;
   letter-spacing: 10px;
   margin-left: 5%;
 }
 
 .description {
-  margin: 0 auto;
-  /* color: #ece9e6; */
   align-self: center;
   height: 100%;
   padding: 0px 2px;
@@ -163,13 +163,11 @@ main {
   }
 }
 
-/* @media screen and (max-width: 930px) {
-  .icono {
-     font-size: 1.8rem !important; 
-  }
-}*/
-
 @media screen and (max-width: 800px) {
+
+  .cosa{
+   height:  60%
+  }
   .tittle {
     margin: 0;
     font-size: 3rem;
@@ -184,15 +182,16 @@ main {
   .bocado {
     font-size: 1rem !important;
   }
-  .function_box{
-    width: 15% !important
+  .function_box {
+    width: 15% !important;
   }
-  .function_box ul li{
-    font-size: 1.5rem
+  .function_box ul li {
+    font-size: 1.5rem;
   }
-  /* .icono {
-      font-size: 1.7rem !important;
-  } */
+  .page-1,.page-2,.page-3{
+    font-size: .95rem !important  ;
+  
+  }
 }
 
 @media screen and (max-width: 730px) {
@@ -202,21 +201,18 @@ main {
   .nombre {
     font-size: 7rem;
   }
-
+  .icono {
+    font-size: 1.8rem !important;
+  }
   .bocado {
     font-size: 0.7rem !important;
   }
-
- 
-  /* .icono {
-        font-size: 1.6rem !important; 
-  } */
+  
 }
 
 @media screen and (max-width: 600px) {
   .tittle {
     font-size: 2rem;
-
   }
 
   .nombre {
@@ -226,12 +222,19 @@ main {
   .icono {
     font-size: 1.6rem !important;
   }
-  .function_box{
-    width: 20% !important
+  .function_box {
+    width: 20% !important;
+  }
+  .page-1,.page-2,.page-3{
+    font-size: .9rem !important;
+   
   }
 }
 
 @media screen and (max-width: 400px) {
+  .cosa{
+    height:  50%
+   }
   .tittle {
     font-size: 1.8rem;
   }
@@ -242,26 +245,8 @@ main {
   .description {
     font-size: 0.8rem;
   }
-  /* .bocado {
-    font-size: 0.4rem !important;
-  } */
 }
 
-/*  @media screen and (min-width: 1000px) and (orientation: landscape) {
-  .centro {
-    background: red;
-    font-size: 65%;
-  }
-  .nombre {
-    font-size: 280%;
-    letter-spacing: 8px;
-  }
-}  */
-img {
-  width: 30%;
-  height: 30%;
-  clip-path: circle();
-}
 .muestra_contenido {
   font-family: "Comfortaa", cursive;
   padding: 2%;
@@ -293,11 +278,6 @@ img {
   border-bottom-left-radius: 100px;
 }
 
-/* .muestra_contenido .nombre{
-  font-size: 200%;
-  font-weight: 100
-} */
-
 .icono {
   position: absolute;
   line-height: normal;
@@ -321,15 +301,9 @@ img {
   margin-left: 8px;
 }
 
-.muestra_contenido .nombre {
-  font-size: 2.5rem;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .bocado {
   margin: 0% 5%;
-  /* font-size: 140% */
+
   font-size: 1.2rem;
   height: 100%;
   display: flex;
@@ -339,7 +313,13 @@ img {
 
 .muestra_contenido .contenido {
   display: none;
-  margin: 2% 5%;
+  margin: 2% ;
+  position: relative;
+  height: 100%;
+}
+
+.contenido .contenido-parrafo {
+  height: 90%;
 }
 
 footer {
@@ -351,7 +331,7 @@ footer {
   height: 20%;
   margin: 1%;
   float: left;
-  /* background: rgba(255, 255, 255, 0.062); */
+
   border-radius: 100px;
 
   align-self: flex-end;
@@ -363,7 +343,7 @@ footer {
   height: 20%;
   margin: 1%;
   float: right;
-  /*   background: rgba(255, 255, 255, 0.062); */
+
   border-radius: 100px;
 
   align-self: flex-end;
@@ -375,20 +355,7 @@ footer {
   padding: 0;
   list-style: none;
   font-size: 2rem;
-  display: flex;
-  align-content: center;
-  justify-content: space-around;
 }
-
-/* .function_box ul li a{
-color: rgb(185, 184, 181);
-
-}
-
-.function_box ul li a:hover{
-  color: rgb(221, 220, 217);
-  }
-   */
 
 .theme ul li button {
   background: transparent;
@@ -412,38 +379,88 @@ color: rgb(185, 184, 181);
   color: rgb(221, 220, 217);
 }
 
-input[type="text"],input[type="email"]{
+input[type="text"],
+input[type="email"] {
   background: transparent;
   border: 0px;
   border-bottom: 1px solid #b4b4b4;
-  border-radius: 0px
+  border-radius: 0px;
 }
 
-textarea.form-control{
+textarea.form-control {
   background: transparent;
   border: 0px;
   border-bottom: 1px solid #b4b4b4;
-  
 }
 
-input[type="submit"]{
+input[type="submit"] {
   background: #7784a5;
-  
 }
 
-input[type="submit"]:hover,input[type="submit"]:active{
+input[type="submit"]:hover,
+input[type="submit"]:active {
   background: #9aa8cc;
 }
 
-input[type="text"]:focus,input[type="email"]:focus,textarea.form-control:focus{
-  background:#e9e6e6bd;
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea.form-control:focus {
+  background: #e9e6e6bd;
   border: none;
   border-bottom: 1px solid #b4b4b4;
   box-shadow: none;
 }
 
+.cv {
+  font-size: 7rem;
+  color: #9d9fa2;
+}
 
+.flechas {
+  color: #6c757d;
+  height: 20%;
+  width: 110%;
+}
 
+.prev:hover,
+.next:hover {
+  cursor: pointer;
+}
 
+/* .next,.prev{
+width: 20px;
+height: 30px;
+background: black
+} */
 
+.page-1,.page-2,.page-3{
+  font-size: 1rem;
+  letter-spacing: 1px
+}
+
+.cuadro{
+  width: 80%;
+  height: 60%;
+  
+}
+
+ .cuadro.primero{
+  background: red;
+}
  
+.cuadro.segundo{
+  background: rgb(0, 68, 255);
+}
+.cuadro.tercero{
+  background: rgb(0, 255, 76);
+}
+
+
+.portafolio .proyecto{
+  height: 100%;
+  width: 90%;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
