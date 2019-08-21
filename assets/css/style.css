@@ -188,7 +188,7 @@ main {
   .function_box ul li {
     font-size: 1.5rem;
   }
-  .page-1,.page-2,.page-3{
+  .page-1,.page-2,.page-3,.page-4,.page-5{
     font-size: .95rem !important  ;
   
   }
@@ -225,7 +225,7 @@ main {
   .function_box {
     width: 20% !important;
   }
-  .page-1,.page-2,.page-3{
+  .page-1,.page-2,.page-3,.page-4,.page-5{
     font-size: .9rem !important;
    
   }
@@ -246,7 +246,7 @@ main {
     font-size: 0.8rem;
   }
 
-  .page-1,.page-2,.page-3{
+  .page-1,.page-2,.page-3,.page-4,.page-5{
     font-size: .8rem !important;
    
   }
@@ -256,7 +256,7 @@ main {
 @media screen and (max-width: 340px) {
   
 
-  .page-1,.page-2,.page-3{
+  .page-1,.page-2,.page-3,.page-4,.page-5{
     font-size: .7rem !important;
    
   }
