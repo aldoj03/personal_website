@@ -245,7 +245,23 @@ main {
   .description {
     font-size: 0.8rem;
   }
+
+  .page-1,.page-2,.page-3{
+    font-size: .8rem !important;
+   
+  }
 }
+
+
+@media screen and (max-width: 340px) {
+  
+
+  .page-1,.page-2,.page-3{
+    font-size: .7rem !important;
+   
+  }
+}
+
 
 .muestra_contenido {
   font-family: "Comfortaa", cursive;
